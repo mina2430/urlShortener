@@ -25,8 +25,10 @@ namespace bitly.Controllers
 
         [HttpPost]
         public ActionResult<string> Post([FromBody] string longUrl){
+            if(!(Uri.IsWellFormedUriString(longUrl, UriKind.Absolute))){
+                return BadRequest();
+            }
 
-            
 
             while(true){
 
