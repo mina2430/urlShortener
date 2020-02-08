@@ -13,4 +13,10 @@ namespace bitly.Domain.Models
         public string ShortUrl { get; set; }
 
     }
+
+
+    
+
+
+    
 }
