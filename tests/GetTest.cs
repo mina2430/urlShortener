@@ -19,9 +19,8 @@ namespace bitly
                 .Header("Accept-Ending", "utf-8")
               .When()
                 .Get("http://localhost:5000/Redirect/lskd34jj")
-                .Then()
-                .Debug()
-                .TestStatus("test status", r => r == 404)
+              .Then()
+                .TestStatus("test status", r => r == 400)
                 .Assert("test status");
 
         }
@@ -38,7 +37,7 @@ namespace bitly
                 .Header("Accept-Ending", "utf-8")
               .When()
                 .Get("http://localhost:5000/Redirect/lskdaaaajj")
-                .Then()
+              .Then()
                 .TestStatus("test status", r => r == 400)
                 .Assert("test status");
 
@@ -56,7 +55,7 @@ namespace bitly
                 .Header("Accept-Ending", "utf-8")
               .When()
                 .Get("http://localhost:5000/Redirect/lskd")
-                .Then()
+              .Then()
                 .TestStatus("test status", r => r == 400)
                 .Assert("test status");
 

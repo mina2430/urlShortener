@@ -18,7 +18,7 @@ namespace Bitly
                 .Body("\"http://www.google.com\"")
               .When()
                 .Post("http://localhost:5000/urls")
-                .Then()
+              .Then()
                 .TestStatus("test status", r => r == 200)
                 .TestBody("test body", b => ((string)b.shortUrl).Length == 8)
                 .Assert("test body")
@@ -37,7 +37,7 @@ namespace Bitly
                 .Body("\"http://www.google.com/چوم\"")
               .When()
                 .Post("http://localhost:5000/urls")
-                .Then()
+              .Then()
                 .TestStatus("test status", r => r == 200)
                 .Assert("test status");
         }
@@ -55,7 +55,7 @@ namespace Bitly
                 .Body("\"http://www.goo#gle.com/\"")
               .When()
                 .Post("http://localhost:5000/urls")
-                .Then()
+              .Then()
                 .TestStatus("test status", r => r == 200)
                 .Assert("test status");
         }
@@ -73,7 +73,7 @@ namespace Bitly
                 .Body("\"www.com\"")
               .When()
                 .Post("http://localhost:5000/urls")
-                .Then()
+              .Then()
                 .TestStatus("test status", r => r == 400)
                 .Assert("test status");
         }
@@ -91,7 +91,7 @@ namespace Bitly
                 .Body("\"985479\"")
               .When()
                 .Post("http://localhost:5000/urls")
-                .Then()
+              .Then()
                 .TestStatus("test status", r => r == 400)
                 .Assert("test status");
         }

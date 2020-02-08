@@ -30,6 +30,11 @@ namespace bitly.Controllers
                 {
                     return BadRequest();
                 }
+                for (int i = 0; i < shortUrl.Length; i++)
+                {
+                    if(shortUrl[i]<'A'||shortUrl[i]>'z'||(shortUrl[i]<'a'&&shortUrl[i]>'Z'))
+                        return BadRequest();
+                }
                 Url url = context.urls.Find(shortUrl);
                 return Redirect(url.LongUrl);
 
