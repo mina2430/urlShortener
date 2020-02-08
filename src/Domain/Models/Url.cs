@@ -5,7 +5,8 @@ namespace bitly.Domain.Models
     public class Url
     {
 
-        public Url(string LongUrl,string ShortUrl){
+        public Url(string LongUrl, string ShortUrl)
+        {
             this.ShortUrl = ShortUrl;
             this.LongUrl = LongUrl;
         }
@@ -15,8 +16,8 @@ namespace bitly.Domain.Models
     }
 
 
-    
 
 
-    
+
+
 }

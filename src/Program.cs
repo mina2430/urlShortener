@@ -22,6 +22,6 @@ namespace bitly
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-                
+
     }
 }

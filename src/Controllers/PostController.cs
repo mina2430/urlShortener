@@ -9,33 +9,25 @@ namespace bitly.Controllers
 {
 
 
-    class ResponseExample{
+    class ResponseExample
+    {
         public string response { get; set; }
         public string shortUrl { get; set; }
-        
-        // public AppDbContext context { get; set; }
 
-
-        public ResponseExample(string shortUrl,AppDbContext context){
-            this.response = "short url: http://localhost:5000/"+shortUrl;
+        public ResponseExample(string shortUrl, AppDbContext context)
+        {
+            this.response = "short url: http://localhost:5000/" + shortUrl;
             this.shortUrl = shortUrl;
-            Console.WriteLine(shortUrl.Length);
-            // this.context = context;
 
         }
 
 
-        public override string ToString(){
+        public override string ToString()
+        {
             return response;
         }
 
-
-
-       
-
-        
     }
-
 
 
     [ApiController]
@@ -43,31 +35,25 @@ namespace bitly.Controllers
     public class UrlsController : Controller
     {
 
-        //private readonly UrlService urlService;
-        //delete
+
         protected readonly AppDbContext context;
         public UrlsController(AppDbContext context)
         {
-            // this.urlService = urlService;  
+
             this.context = context;
 
         }
-
-
-        
-
 
 
         [HttpPost]
         public ActionResult<string> Post([FromBody] string longUrl)
         {
             Uri uriResult;
-            // if (Uri.IsWellFormedUriString(longUrl, UriKind.Absolute))
-            if(!(Uri.TryCreate(longUrl, UriKind.Absolute, out uriResult) 
+            if (!(Uri.TryCreate(longUrl, UriKind.Absolute, out uriResult)
     && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps)))
-             {
-                 return BadRequest();
-             }
+            {
+                return BadRequest();
+            }
 
 
             while (true)
@@ -87,17 +73,15 @@ namespace bitly.Controllers
                     }
                     builder.Append(ch);
                 }
-                Console.WriteLine(builder.ToString());
 
                 if (context.urls.Find(builder.ToString()) == null)
                 {
                     Url newUrl = new Url(longUrl, builder.ToString());
                     context.urls.Add(newUrl);
                     context.SaveChanges();
-                    ResponseExample response = new ResponseExample(newUrl.ShortUrl,context);
-                    //return "short url: http://localhost:5000/" + newUrl.ShortUrl + "\n";
+                    ResponseExample response = new ResponseExample(newUrl.ShortUrl, context);
                     return Ok(response);
-                    
+
 
                 }
                 else

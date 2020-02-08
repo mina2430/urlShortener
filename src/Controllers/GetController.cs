@@ -26,13 +26,13 @@ namespace bitly.Controllers
 
             try
             {
-                if(shortUrl.Length != 8)
+                if (shortUrl.Length != 8)
                 {
                     return BadRequest();
                 }
                 Url url = context.urls.Find(shortUrl);
                 return Redirect(url.LongUrl);
-                
+
             }
             catch (Exception)
             {

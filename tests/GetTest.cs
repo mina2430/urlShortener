@@ -11,11 +11,11 @@ namespace bitly
         [Fact]
         public void containNumber_shortUrl()
         {
-            
+
             new RestAssured()
               .Given()
                 .Name("short url with number test")
-                .Header("Content-Type","application/json")
+                .Header("Content-Type", "application/json")
                 .Header("Accept-Ending", "utf-8")
               .When()
                 .Get("http://localhost:5000/Redirect/lskd34jj")
@@ -30,11 +30,11 @@ namespace bitly
         [Fact]
         public void long_shortUrl()
         {
-            
+
             new RestAssured()
               .Given()
                 .Name("short url more than 8 characters test")
-                .Header("Content-Type","application/json")
+                .Header("Content-Type", "application/json")
                 .Header("Accept-Ending", "utf-8")
               .When()
                 .Get("http://localhost:5000/Redirect/lskdaaaajj")
@@ -48,11 +48,11 @@ namespace bitly
         [Fact]
         public void short_shortUrl()
         {
-            
+
             new RestAssured()
               .Given()
                 .Name("short url less than 8 characters test")
-                .Header("Content-Type","application/json")
+                .Header("Content-Type", "application/json")
                 .Header("Accept-Ending", "utf-8")
               .When()
                 .Get("http://localhost:5000/Redirect/lskd")
@@ -65,7 +65,7 @@ namespace bitly
 
 
 
-        
+
 
 
     }

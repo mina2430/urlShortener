@@ -5,7 +5,7 @@ using bitly.Domain.Repositories;
 
 namespace bitly.Domain.Services
 {
-    public class UrlService 
+    public class UrlService
     {
         private readonly UrlRepository urlRepository;
 
@@ -14,15 +14,16 @@ namespace bitly.Domain.Services
             this.urlRepository = urlRepository;
         }
 
-        public Task<Url> find (string shortUrl)
-        { 
-            return  urlRepository.find(shortUrl);
+        public Task<Url> find(string shortUrl)
+        {
+            return urlRepository.find(shortUrl);
         }
 
-        public Task add(Url url){
+        public Task add(Url url)
+        {
             return urlRepository.add(url);
         }
 
-    
+
     }
 }

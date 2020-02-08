@@ -26,7 +26,7 @@ namespace Bitly
         }
 
         [Fact]
-        public void persianUrlTest ()
+        public void persianUrlTest()
         {
 
             new RestAssured()

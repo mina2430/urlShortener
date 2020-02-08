@@ -27,14 +27,9 @@ namespace bitly
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Console.WriteLine(Configuration.GetConnectionString("bitly"));
-            //["ConnectionStrings:bitly"]
-            //Configuration.GetConnectionString("bitly"))
+            
             services.AddDbContext<AppDbContext>(opts =>
                 opts.UseNpgsql(Configuration.GetConnectionString("urlShortener")));
-
-            //     services.AddDbContext<BenchmarkContext>(options =>
-            // options.UseSqlServer(Configuration.GetConnectionString("TestConnection")));
 
             services.AddControllers();
         }
@@ -46,8 +41,6 @@ namespace bitly
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
